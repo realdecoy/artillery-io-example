@@ -9,7 +9,7 @@ Setup instructions:
   The command to run is `artillery run --config ./tests/configs/test-app-config.yml ./tests/scenarios/outsmart-dispensary-actions.yml --output sample.json`
   * The --config hook specifies the config file which is followed by the scenario file. The --output hook specifies the test output which will be a json file.
   
-  5. Generate an html report with the command: artillery report --output sample.html sample.json
+  5. Generate an html report with the command: `artillery report --output sample.html sample.json`
   * The --output command specifies the name of the html reports followed by the json file generated from the previous run command.
   
   The html report can then be opened in the browser.
