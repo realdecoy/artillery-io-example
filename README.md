@@ -3,7 +3,7 @@
 Setup instructions:
 
   1. Clone the repository and run `npm i` in the root of the project folder
-  2. Add configurations for your website in a configuration file in the tests/config folder.
+  2. Add configurations for your website in a configuration file in the tests/configs folder.
   3. Add test scenarios (Build scenarios to load test various endpoints) to the tests/scenarios folder.
   4. Run the scenario script with the configuration. 
   The command to run is `artillery run --config ./tests/configs/test-app-config.yml ./tests/scenarios/outsmart-dispensary-actions.yml --output sample.json`
