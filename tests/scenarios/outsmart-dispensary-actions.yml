@@ -1,0 +1,248 @@
+before:
+  flow:
+    - log: "Login"
+    - get:
+        url: "/"
+    - think: 1
+    - post:
+        url: "/AJAXSS.php"
+        json:
+          email: "test.practitioner@example.com"
+          password: "password"
+    - think: 5
+    
+scenarios:
+  - name: "Login Redirect"
+    flow:
+      - get:
+          url: "/login-router.php"
+      - think: 1
+      - get:
+          url: "/SND/templates/practitioner/index.php"
+      - think: 1
+      - get:
+          url: "/SND/templates/practitioner/office-selection.php"
+      - think: 1
+
+  - name: "Selecting Office"
+    flow:
+      - get:
+          url: "/SND/templates/practitioner/office-selection.php"
+          qs:
+            id: 11
+      - think: 1
+
+  - name: "Dashboard Arrival"
+    flow:
+      - get:
+          url: "/SND/templates/practitioner/index.php"
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "811"
+            info: '{}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "5022"
+            info: '{}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "221"
+            info: '{iOfficeID: "11"}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "221"
+            info: '{iOfficeID: "11"}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "214"
+            info: '{iOfficeID: "11"}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "AdminCards/GetCardsAJAX"
+            info: '{package: {}}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "Subscription/GetFreeTrialDetailsAJAX"
+            info: '{package: {}}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "Stripe/Subscription/Trial/Get"
+            info: '{package: {legacyTrialDetails: {eligibleForTrial: true}}}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "304"
+            info: '{package: {iStart: 1634184000, iEnd: 1634270399, aUserOffice: ["11-54261"]}}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "304"
+            info: '{package: {iStart: 1634184000, iEnd: 1634270399, aUserOffice: ["11-54261"]}}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "3401"
+            info: '{package: {aStatus: [1]}}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "AdminCards/GenerateXpressCheckoutDataAJAX"
+            info: '{package: {day: "2021-10-15"}}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "Notes/GetNotesAJAX"
+            info: '{package: {inclusive: ["1._"], limit: 50}}'
+      - think: 1
+      
+  - name: "Open Calendar"
+    flow:
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "Office"
+            info: '{package: {iOfficeID:"11"}}'
+      - think: 1
+      - get:
+          url: "/SND/select2AjaxLists/select2_office_staff_list.php"
+          qs:
+            iOfficeID: 11
+            currentUser: yes
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "2611"
+            info: '{package: {}}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "Schedule/GetAllCalendarsAJAX"
+            info: '{package: {}}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "Preferences/GetUserPreferencesAJAX"
+            info: '{package: {}}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "Preferences/GetDefaultUserPreferencesAJAX"
+            info: '{package: {module: "calendar"}}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "304"
+            info: '{package: {disableExtrapolation: true, iStart: 1633842000, iEnd: 1634446799, aFilter: {includeDeleted: true}, aUserOffice: ["11-1","11-54261","11-96681"]}}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "304"
+            info: '{package: {disableExtrapolation: true, iStart: 1633842000, iEnd: 1634446799, aFilter: {includeDeleted: true}, aUserOffice: ["11-1","11-54261","11-96681"]}}'
+      - think: 1
+      - post:
+          url: "/AJAXSS.php"   
+          json:
+            nonce: "no Nonce"
+            f_id: "304"
+            info: '{package: {disableExtrapolation: true, iStart: 1633842000, iEnd: 1634446799, aFilter: {includeDeleted: true}, aUserOffice: ["11-1","11-54261","11-96681"]}}'
+      - think: 1
+
+  - name: "Navigate to Dispensary"
+    flow:
+      - get:
+          url: "/dispensary/admin/?iDispensaryID=827"
+      - think: 3
+
+  - name: "Dispensary - add new category"
+    flow:
+      - post:
+          url: "/dispensary/admin/index.php"
+          qs: 
+            route: "catalog/category/add"
+          formData:
+            category_description[1][name]: "Test Category"
+            category_description[1][description]: "Test description"
+            status: 1
+
+  - name: "Dispensary - add new distributor"
+    flow:
+      - post:
+          url: "/dispensary/admin/index.php"
+          qs: 
+            route: "catalog/distributor/add"
+          formData:
+            name: "Test"
+            email: "Test"
+            fax: ""
+            phone: ""
+            contact_name: ""
+            account_number: ""
+            notes: ""
+  
+  - name: "Dispensary - add new Manufacturer"
+    flow:
+      - post:
+          url: "/dispensary/admin/index.php"
+          qs: 
+            route: "catalog/manufacturer/add"
+          formData:
+            name: "Test Manufacturer"
+            manufacturer_store[]: 0
+            keyword: ""
+            image: ""
+            sort_order: ""
+
+after:
+  flow:
+    - log: "Logout/End Session"
+    - get:
+        url: "/SND/templates/logout.php"
+    - get:
+        url: "/login.php"

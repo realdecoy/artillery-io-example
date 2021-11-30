@@ -1,0 +1,18 @@
+{
+  "name": "performance",
+  "version": "1.0.0",
+  "description": "performance testing of OutSmartND with artillery io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "artillery": "^1.7.9",
+    "artillery-plugin-metrics-by-endpoint": "^1.0.2"
+  },
+  "dependencies": {
+    "lighthouse": "^8.5.1"
+  }
+}

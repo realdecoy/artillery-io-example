@@ -1,0 +1,9 @@
+config:
+  target: "https://test-app.outsmartemr.com"
+  plugins:
+    metrics-by-endpoint: {}
+  http:
+    timeout: 30
+  phases:
+    - duration: 180
+      arrivalCount: 500

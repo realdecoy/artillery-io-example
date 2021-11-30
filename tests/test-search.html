@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Artillery report</title>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.0/d3.min.js' charset='utf-8'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.6.0/metricsgraphics.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.6.0/metricsgraphics.min.js"></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+  <link href='https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js" charset="utf-8"></script>
+
+  <style>
+  body, p, li {
+    font-family: sans-serif;
+    font-size: 10pt;
+  }
+
+  h1 {
+    font-size: 18pt;
+    font-weight: bold;
+  }
+
+  #errorsContainer > p {
+    color: #009900;
+  }
+
+  #footer {
+    padding: 1em;
+    font-size: 0.8em;
+    color: #999;
+    text-align: center;
+    margin-top: 1em;
+    background-color: #eee;
+  }
+  #editor {
+    font-size: 8pt;
+    height: 20em;
+  }
+  </style>
+
+  <script>
+  window.Report = {
+  "aggregate": {
+    "timestamp": "2021-10-12T22:00:04.711Z",
+    "scenariosCreated": 1298,
+    "scenariosCompleted": 603,
+    "requestsCompleted": 3332,
+    "latency": {
+      "min": 51,
+      "max": 29716,
+      "median": 10055,
+      "p95": 17064.8,
+      "p99": 26767.1
+    },
+    "rps": {
+      "count": 4334,
+      "mean": 17.39
+    },
+    "scenarioDuration": {
+      "min": 9356.3,
+      "max": 79293.9,
+      "median": 19561.2,
+      "p95": 58844.6,
+      "p99": 67518.9
+    },
+    "scenarioCounts": {
+      "Patient Searching": 269,
+      "Smart Forms Searching": 275,
+      "Appointments Searching": 230,
+      "Smart Charts Searching": 257,
+      "Document Searching": 267
+    },
+    "errors": {
+      "ETIMEDOUT": 1002
+    },
+    "codes": {
+      "200": 646,
+      "302": 589,
+      "502": 50,
+      "503": 777,
+      "504": 1270
+    },
+    "matches": 0,
+    "customStats": {},
+    "counters": {},
+    "scenariosAvoided": 0,
+    "phases": [
+      {
+        "duration": 60,
+        "arrivalRate": 1,
+        "name": "Warm up",
+        "arrivalCount": 50
+      },
+      {
+        "duration": 60,
+        "arrivalRate": 5,
+        "rampTo": 20,
+        "name": "Ramp up load"
+      },
+      {
+        "duration": 120,
+        "arrivalRate": 5,
+        "name": "Sustained load",
+        "arrivalCount": 500
+      }
+    ]
+  },
+  "intermediate": [
+    {
+      "timestamp": "2021-10-12T21:56:04.258Z",
+      "scenariosCreated": 8,
+      "scenariosCompleted": 0,
+      "requestsCompleted": 42,
+      "latency": {
+        "min": 89,
+        "max": 275,
+        "median": 107,
+        "p95": 218.8,
+        "p99": 275
+      },
+      "rps": {
+        "count": 44,
+        "mean": 4.99
+      },
+      "scenarioDuration": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "scenarioCounts": {
+        "Patient Searching": 3,
+        "Smart Forms Searching": 3,
+        "Appointments Searching": 2
+      },
+      "errors": {},
+      "codes": {
+        "200": 24,
+        "302": 18
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 8,
+      "pendingRequests": 2,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:56:14.270Z",
+      "scenariosCreated": 8,
+      "scenariosCompleted": 8,
+      "requestsCompleted": 83,
+      "latency": {
+        "min": 90,
+        "max": 313,
+        "median": 115,
+        "p95": 237.1,
+        "p99": 309.4
+      },
+      "rps": {
+        "count": 82,
+        "mean": 8.3
+      },
+      "scenarioDuration": {
+        "min": 9597.3,
+        "max": 9815.7,
+        "median": 9671.1,
+        "p95": 9815.7,
+        "p99": 9815.7
+      },
+      "scenarioCounts": {
+        "Patient Searching": 1,
+        "Smart Charts Searching": 2,
+        "Appointments Searching": 3,
+        "Document Searching": 2
+      },
+      "errors": {},
+      "codes": {
+        "200": 59,
+        "302": 24
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 8,
+      "pendingRequests": 1,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:56:24.269Z",
+      "scenariosCreated": 9,
+      "scenariosCompleted": 8,
+      "requestsCompleted": 84,
+      "latency": {
+        "min": 93,
+        "max": 282,
+        "median": 116,
+        "p95": 224.8,
+        "p99": 281.3
+      },
+      "rps": {
+        "count": 86,
+        "mean": 8.65
+      },
+      "scenarioDuration": {
+        "min": 9635.9,
+        "max": 9810.9,
+        "median": 9745.8,
+        "p95": 9810.9,
+        "p99": 9810.9
+      },
+      "scenarioCounts": {
+        "Document Searching": 1,
+        "Patient Searching": 3,
+        "Appointments Searching": 4,
+        "Smart Charts Searching": 1
+      },
+      "errors": {},
+      "codes": {
+        "200": 59,
+        "302": 25
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 9,
+      "pendingRequests": 3,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:56:34.271Z",
+      "scenariosCreated": 8,
+      "scenariosCompleted": 9,
+      "requestsCompleted": 84,
+      "latency": {
+        "min": 91,
+        "max": 300,
+        "median": 120.5,
+        "p95": 222.6,
+        "p99": 282.3
+      },
+      "rps": {
+        "count": 82,
+        "mean": 8.35
+      },
+      "scenarioDuration": {
+        "min": 9600.6,
+        "max": 9796.5,
+        "median": 9752.1,
+        "p95": 9796.5,
+        "p99": 9796.5
+      },
+      "scenarioCounts": {
+        "Document Searching": 1,
+        "Smart Forms Searching": 2,
+        "Appointments Searching": 1,
+        "Patient Searching": 3,
+        "Smart Charts Searching": 1
+      },
+      "errors": {},
+      "codes": {
+        "200": 58,
+        "302": 26
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 8,
+      "pendingRequests": 1,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:56:44.278Z",
+      "scenariosCreated": 8,
+      "scenariosCompleted": 8,
+      "requestsCompleted": 82,
+      "latency": {
+        "min": 86,
+        "max": 378,
+        "median": 112.5,
+        "p95": 242,
+        "p99": 357.8
+      },
+      "rps": {
+        "count": 81,
+        "mean": 8.19
+      },
+      "scenarioDuration": {
+        "min": 9587.2,
+        "max": 9847,
+        "median": 9714.3,
+        "p95": 9847,
+        "p99": 9847
+      },
+      "scenarioCounts": {
+        "Appointments Searching": 2,
+        "Document Searching": 2,
+        "Patient Searching": 1,
+        "Smart Forms Searching": 2,
+        "Smart Charts Searching": 1
+      },
+      "errors": {},
+      "codes": {
+        "200": 58,
+        "302": 24
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 8,
+      "pendingRequests": 0,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:56:54.290Z",
+      "scenariosCreated": 9,
+      "scenariosCompleted": 8,
+      "requestsCompleted": 84,
+      "latency": {
+        "min": 95,
+        "max": 324,
+        "median": 119.5,
+        "p95": 225.6,
+        "p99": 317.9
+      },
+      "rps": {
+        "count": 87,
+        "mean": 8.73
+      },
+      "scenarioDuration": {
+        "min": 9641.2,
+        "max": 9826,
+        "median": 9710.3,
+        "p95": 9826,
+        "p99": 9826
+      },
+      "scenarioCounts": {
+        "Patient Searching": 2,
+        "Appointments Searching": 4,
+        "Smart Charts Searching": 1,
+        "Document Searching": 2
+      },
+      "errors": {},
+      "codes": {
+        "200": 59,
+        "302": 25
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 9,
+      "pendingRequests": 3,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:57:04.291Z",
+      "scenariosCreated": 56,
+      "scenariosCompleted": 8,
+      "requestsCompleted": 131,
+      "latency": {
+        "min": 88,
+        "max": 3341,
+        "median": 309,
+        "p95": 2269.6,
+        "p99": 3234.1
+      },
+      "rps": {
+        "count": 211,
+        "mean": 21.25
+      },
+      "scenarioDuration": {
+        "min": 9643,
+        "max": 10245,
+        "median": 9778.6,
+        "p95": 10245,
+        "p99": 10245
+      },
+      "scenarioCounts": {
+        "Appointments Searching": 14,
+        "Smart Charts Searching": 11,
+        "Document Searching": 12,
+        "Smart Forms Searching": 10,
+        "Patient Searching": 9
+      },
+      "errors": {},
+      "codes": {
+        "200": 70,
+        "302": 61
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 57,
+      "pendingRequests": 83,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:57:14.291Z",
+      "scenariosCreated": 93,
+      "scenariosCompleted": 5,
+      "requestsCompleted": 113,
+      "latency": {
+        "min": 287,
+        "max": 11904,
+        "median": 3919,
+        "p95": 10875.4,
+        "p99": 11788.1
+      },
+      "rps": {
+        "count": 263,
+        "mean": 26.38
+      },
+      "scenarioDuration": {
+        "min": 10422.7,
+        "max": 15592.6,
+        "median": 11357.5,
+        "p95": 15592.6,
+        "p99": 15592.6
+      },
+      "scenarioCounts": {
+        "Smart Forms Searching": 16,
+        "Appointments Searching": 19,
+        "Patient Searching": 19,
+        "Smart Charts Searching": 15,
+        "Document Searching": 24
+      },
+      "errors": {},
+      "codes": {
+        "200": 42,
+        "302": 71
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 145,
+      "pendingRequests": 233,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:57:24.298Z",
+      "scenariosCreated": 104,
+      "scenariosCompleted": 1,
+      "requestsCompleted": 125,
+      "latency": {
+        "min": 342,
+        "max": 23403,
+        "median": 7757,
+        "p95": 14769.5,
+        "p99": 21046.5
+      },
+      "rps": {
+        "count": 287,
+        "mean": 28.76
+      },
+      "scenarioDuration": {
+        "min": 19158.7,
+        "max": 19158.7,
+        "median": 19158.7,
+        "p95": 19158.7,
+        "p99": 19158.7
+      },
+      "scenarioCounts": {
+        "Patient Searching": 19,
+        "Appointments Searching": 21,
+        "Smart Charts Searching": 23,
+        "Smart Forms Searching": 19,
+        "Document Searching": 22
+      },
+      "errors": {},
+      "codes": {
+        "200": 48,
+        "302": 77
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 248,
+      "pendingRequests": 395,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:57:34.304Z",
+      "scenariosCreated": 135,
+      "scenariosCompleted": 0,
+      "requestsCompleted": 103,
+      "latency": {
+        "min": 503,
+        "max": 28304,
+        "median": 11984,
+        "p95": 21116.5,
+        "p99": 25606.8
+      },
+      "rps": {
+        "count": 310,
+        "mean": 31.06
+      },
+      "scenarioDuration": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "scenarioCounts": {
+        "Smart Forms Searching": 31,
+        "Appointments Searching": 28,
+        "Smart Charts Searching": 22,
+        "Patient Searching": 29,
+        "Document Searching": 25
+      },
+      "errors": {
+        "ETIMEDOUT": 15
+      },
+      "codes": {
+        "200": 39,
+        "302": 64
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 369,
+      "pendingRequests": 602,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:57:44.297Z",
+      "scenariosCreated": 156,
+      "scenariosCompleted": 2,
+      "requestsCompleted": 139,
+      "latency": {
+        "min": 411,
+        "max": 29430,
+        "median": 15219,
+        "p95": 21913.8,
+        "p99": 26490.3
+      },
+      "rps": {
+        "count": 367,
+        "mean": 36.74
+      },
+      "scenarioDuration": {
+        "min": 39951.7,
+        "max": 40141.2,
+        "median": 40046.4,
+        "p95": 40141.2,
+        "p99": 40141.2
+      },
+      "scenarioCounts": {
+        "Smart Charts Searching": 37,
+        "Smart Forms Searching": 42,
+        "Document Searching": 31,
+        "Patient Searching": 29,
+        "Appointments Searching": 17
+      },
+      "errors": {
+        "ETIMEDOUT": 84
+      },
+      "codes": {
+        "200": 55,
+        "302": 84
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 470,
+      "pendingRequests": 830,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:57:54.310Z",
+      "scenariosCreated": 189,
+      "scenariosCompleted": 0,
+      "requestsCompleted": 139,
+      "latency": {
+        "min": 269,
+        "max": 29281,
+        "median": 14247,
+        "p95": 25951.4,
+        "p99": 28164.9
+      },
+      "rps": {
+        "count": 378,
+        "mean": 37.84
+      },
+      "scenarioDuration": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "scenarioCounts": {
+        "Smart Forms Searching": 39,
+        "Patient Searching": 31,
+        "Smart Charts Searching": 39,
+        "Document Searching": 40,
+        "Appointments Searching": 40
+      },
+      "errors": {
+        "ETIMEDOUT": 108
+      },
+      "codes": {
+        "200": 50,
+        "302": 66,
+        "504": 23
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 607,
+      "pendingRequests": 1069,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:58:04.308Z",
+      "scenariosCreated": 53,
+      "scenariosCompleted": 0,
+      "requestsCompleted": 217,
+      "latency": {
+        "min": 5952,
+        "max": 28496,
+        "median": 10080,
+        "p95": 10097.7,
+        "p99": 27134.5
+      },
+      "rps": {
+        "count": 245,
+        "mean": 24.52
+      },
+      "scenarioDuration": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "scenarioCounts": {
+        "Patient Searching": 12,
+        "Appointments Searching": 7,
+        "Smart Forms Searching": 12,
+        "Document Searching": 13,
+        "Smart Charts Searching": 9
+      },
+      "errors": {
+        "ETIMEDOUT": 176
+      },
+      "codes": {
+        "200": 4,
+        "302": 1,
+        "504": 212
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 530,
+      "pendingRequests": 1097,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:58:14.310Z",
+      "scenariosCreated": 42,
+      "scenariosCompleted": 0,
+      "requestsCompleted": 276,
+      "latency": {
+        "min": 388,
+        "max": 29676,
+        "median": 10080,
+        "p95": 23603.2,
+        "p99": 27525.6
+      },
+      "rps": {
+        "count": 335,
+        "mean": 33.63
+      },
+      "scenarioDuration": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "scenarioCounts": {
+        "Smart Forms Searching": 10,
+        "Document Searching": 12,
+        "Patient Searching": 13,
+        "Smart Charts Searching": 5,
+        "Appointments Searching": 2
+      },
+      "errors": {
+        "ETIMEDOUT": 226
+      },
+      "codes": {
+        "200": 10,
+        "302": 15,
+        "504": 251
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 403,
+      "pendingRequests": 1156,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:58:24.312Z",
+      "scenariosCreated": 41,
+      "scenariosCompleted": 28,
+      "requestsCompleted": 273,
+      "latency": {
+        "min": 10051,
+        "max": 29716,
+        "median": 10081,
+        "p95": 13421.2,
+        "p99": 29513.5
+      },
+      "rps": {
+        "count": 243,
+        "mean": 24.32
+      },
+      "scenarioDuration": {
+        "min": 39381.3,
+        "max": 65348.8,
+        "median": 39607.5,
+        "p95": 64068.5,
+        "p99": 65348.8
+      },
+      "scenarioCounts": {
+        "Patient Searching": 10,
+        "Document Searching": 11,
+        "Smart Forms Searching": 4,
+        "Appointments Searching": 9,
+        "Smart Charts Searching": 7
+      },
+      "errors": {
+        "ETIMEDOUT": 118
+      },
+      "codes": {
+        "200": 7,
+        "302": 7,
+        "504": 259
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 338,
+      "pendingRequests": 1126,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:58:34.316Z",
+      "scenariosCreated": 42,
+      "scenariosCompleted": 98,
+      "requestsCompleted": 163,
+      "latency": {
+        "min": 10056,
+        "max": 10111,
+        "median": 10079,
+        "p95": 10096.4,
+        "p99": 10104.2
+      },
+      "rps": {
+        "count": 126,
+        "mean": 12.64
+      },
+      "scenarioDuration": {
+        "min": 37053,
+        "max": 65464.9,
+        "median": 39516.2,
+        "p95": 62058.9,
+        "p99": 65202.2
+      },
+      "scenarioCounts": {
+        "Smart Charts Searching": 7,
+        "Document Searching": 12,
+        "Appointments Searching": 9,
+        "Smart Forms Searching": 6,
+        "Patient Searching": 8
+      },
+      "errors": {
+        "ETIMEDOUT": 41
+      },
+      "codes": {
+        "504": 163
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 258,
+      "pendingRequests": 1089,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:58:44.322Z",
+      "scenariosCreated": 42,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 113,
+      "latency": {
+        "min": 10057,
+        "max": 22687,
+        "median": 10081,
+        "p95": 10098.9,
+        "p99": 14759.7
+      },
+      "rps": {
+        "count": 110,
+        "mean": 11.06
+      },
+      "scenarioDuration": {
+        "min": 39358.4,
+        "max": 71280.2,
+        "median": 39495.9,
+        "p95": 61984.2,
+        "p99": 71280.2
+      },
+      "scenarioCounts": {
+        "Smart Charts Searching": 10,
+        "Smart Forms Searching": 12,
+        "Document Searching": 8,
+        "Appointments Searching": 5,
+        "Patient Searching": 7
+      },
+      "errors": {
+        "ETIMEDOUT": 78
+      },
+      "codes": {
+        "200": 1,
+        "504": 112
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 224,
+      "pendingRequests": 1086,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:58:54.318Z",
+      "scenariosCreated": 41,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 103,
+      "latency": {
+        "min": 7883,
+        "max": 27684,
+        "median": 10077,
+        "p95": 10098.4,
+        "p99": 18364.5
+      },
+      "rps": {
+        "count": 108,
+        "mean": 10.85
+      },
+      "scenarioDuration": {
+        "min": 39370,
+        "max": 70444.3,
+        "median": 39518.8,
+        "p95": 70172.2,
+        "p99": 70444.3
+      },
+      "scenarioCounts": {
+        "Smart Forms Searching": 7,
+        "Document Searching": 7,
+        "Smart Charts Searching": 11,
+        "Appointments Searching": 8,
+        "Patient Searching": 8
+      },
+      "errors": {
+        "ETIMEDOUT": 94
+      },
+      "codes": {
+        "200": 2,
+        "504": 101
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 166,
+      "pendingRequests": 1091,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:59:04.324Z",
+      "scenariosCreated": 42,
+      "scenariosCompleted": 22,
+      "requestsCompleted": 88,
+      "latency": {
+        "min": 6443,
+        "max": 10113,
+        "median": 10077,
+        "p95": 10096.1,
+        "p99": 10109.2
+      },
+      "rps": {
+        "count": 105,
+        "mean": 10.53
+      },
+      "scenarioDuration": {
+        "min": 39376.9,
+        "max": 70398.2,
+        "median": 39477.3,
+        "p95": 52456.8,
+        "p99": 70398.2
+      },
+      "scenarioCounts": {
+        "Document Searching": 5,
+        "Smart Charts Searching": 10,
+        "Appointments Searching": 8,
+        "Smart Forms Searching": 9,
+        "Patient Searching": 10
+      },
+      "errors": {
+        "ETIMEDOUT": 25
+      },
+      "codes": {
+        "200": 1,
+        "302": 1,
+        "504": 86
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 167,
+      "pendingRequests": 1108,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:59:14.340Z",
+      "scenariosCreated": 42,
+      "scenariosCompleted": 58,
+      "requestsCompleted": 253,
+      "latency": {
+        "min": 51,
+        "max": 29167,
+        "median": 87,
+        "p95": 10094.1,
+        "p99": 21034.6
+      },
+      "rps": {
+        "count": 168,
+        "mean": 16.82
+      },
+      "scenarioDuration": {
+        "min": 19417.8,
+        "max": 79293.9,
+        "median": 36757.2,
+        "p95": 39584,
+        "p99": 76382.2
+      },
+      "scenarioCounts": {
+        "Patient Searching": 11,
+        "Smart Charts Searching": 12,
+        "Smart Forms Searching": 11,
+        "Document Searching": 3,
+        "Appointments Searching": 5
+      },
+      "errors": {
+        "ETIMEDOUT": 10
+      },
+      "codes": {
+        "502": 34,
+        "503": 159,
+        "504": 60
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 142,
+      "pendingRequests": 1023,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:59:24.344Z",
+      "scenariosCreated": 41,
+      "scenariosCompleted": 102,
+      "requestsCompleted": 174,
+      "latency": {
+        "min": 52,
+        "max": 10099,
+        "median": 77.5,
+        "p95": 98,
+        "p99": 10084.9
+      },
+      "rps": {
+        "count": 171,
+        "mean": 17.1
+      },
+      "scenarioDuration": {
+        "min": 9356.3,
+        "max": 40451.2,
+        "median": 19117.5,
+        "p95": 35027.2,
+        "p99": 40017.5
+      },
+      "scenarioCounts": {
+        "Smart Forms Searching": 9,
+        "Patient Searching": 12,
+        "Smart Charts Searching": 10,
+        "Document Searching": 9,
+        "Appointments Searching": 1
+      },
+      "errors": {
+        "ETIMEDOUT": 21
+      },
+      "codes": {
+        "503": 171,
+        "504": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 61,
+      "pendingRequests": 1020,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:59:34.352Z",
+      "scenariosCreated": 42,
+      "scenariosCompleted": 52,
+      "requestsCompleted": 159,
+      "latency": {
+        "min": 55,
+        "max": 29498,
+        "median": 82,
+        "p95": 24891.8,
+        "p99": 28951.8
+      },
+      "rps": {
+        "count": 143,
+        "mean": 14.3
+      },
+      "scenarioDuration": {
+        "min": 9360.5,
+        "max": 58485.9,
+        "median": 9508.8,
+        "p95": 50932.1,
+        "p99": 58433.1
+      },
+      "scenarioCounts": {
+        "Smart Charts Searching": 7,
+        "Smart Forms Searching": 11,
+        "Patient Searching": 9,
+        "Appointments Searching": 9,
+        "Document Searching": 6
+      },
+      "errors": {
+        "ETIMEDOUT": 6
+      },
+      "codes": {
+        "502": 16,
+        "503": 143
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 45,
+      "pendingRequests": 1004,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:59:44.358Z",
+      "scenariosCreated": 42,
+      "scenariosCompleted": 47,
+      "requestsCompleted": 126,
+      "latency": {
+        "min": 54,
+        "max": 106,
+        "median": 80,
+        "p95": 96,
+        "p99": 102.2
+      },
+      "rps": {
+        "count": 126,
+        "mean": 12.6
+      },
+      "scenarioDuration": {
+        "min": 9359.4,
+        "max": 37749.3,
+        "median": 9526.8,
+        "p95": 34185.7,
+        "p99": 37749.3
+      },
+      "scenarioCounts": {
+        "Patient Searching": 10,
+        "Smart Forms Searching": 8,
+        "Document Searching": 10,
+        "Smart Charts Searching": 9,
+        "Appointments Searching": 5
+      },
+      "errors": {},
+      "codes": {
+        "503": 126
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 40,
+      "pendingRequests": 1004,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T21:59:54.355Z",
+      "scenariosCreated": 41,
+      "scenariosCompleted": 42,
+      "requestsCompleted": 126,
+      "latency": {
+        "min": 55,
+        "max": 113,
+        "median": 79,
+        "p95": 97.2,
+        "p99": 105.4
+      },
+      "rps": {
+        "count": 125,
+        "mean": 12.61
+      },
+      "scenarioDuration": {
+        "min": 9359.4,
+        "max": 9609.8,
+        "median": 9520,
+        "p95": 9599.2,
+        "p99": 9609.8
+      },
+      "scenarioCounts": {
+        "Smart Charts Searching": 5,
+        "Document Searching": 8,
+        "Smart Forms Searching": 12,
+        "Patient Searching": 9,
+        "Appointments Searching": 7
+      },
+      "errors": {},
+      "codes": {
+        "503": 126
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 39,
+      "pendingRequests": 1003,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T22:00:04.360Z",
+      "scenariosCreated": 4,
+      "scenariosCompleted": 42,
+      "requestsCompleted": 52,
+      "latency": {
+        "min": 55,
+        "max": 99,
+        "median": 79,
+        "p95": 96.9,
+        "p99": 99
+      },
+      "rps": {
+        "count": 51,
+        "mean": 5.1
+      },
+      "scenarioDuration": {
+        "min": 9366.8,
+        "max": 9612.2,
+        "median": 9479,
+        "p95": 9594.2,
+        "p99": 9612.2
+      },
+      "scenarioCounts": {
+        "Document Searching": 1,
+        "Smart Charts Searching": 2,
+        "Patient Searching": 1
+      },
+      "errors": {},
+      "codes": {
+        "503": 52
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 1,
+      "pendingRequests": 1002,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-10-12T22:00:04.687Z",
+      "scenariosCreated": 0,
+      "scenariosCompleted": 1,
+      "requestsCompleted": 0,
+      "latency": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "rps": {
+        "count": 0,
+        "mean": null
+      },
+      "scenarioDuration": {
+        "min": 9558,
+        "max": 9558,
+        "median": 9558,
+        "p95": 9558,
+        "p99": 9558
+      },
+      "scenarioCounts": {},
+      "errors": {},
+      "codes": {},
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 0,
+      "pendingRequests": 1002,
+      "scenariosAvoided": 0
+    }
+  ]
+};
+  </script>
+
+  <style>
+      h1 {
+        line-height: 200%;
+      }
+
+      body {
+          background-color: #fcfcfc;
+      }
+
+      .container {
+          width: 100%;
+          min-width: 960px;
+      }
+  </style>
+
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="row" id="header">
+  <div class="col-lg-4 col-lg-offset-4">
+    <pre style="font-size: 5pt; background-color: #fcfcfc; border: none;">
+            _   _ _ _                                                _
+  __ _ _ __| |_(_) | | ___ _ __ _   _      _ __ ___ _ __   ___  _ __| |_
+ / _` | '__| __| | | |/ _ \ '__| | | |    | '__/ _ \ '_ \ / _ \| '__| __|
+| (_| | |  | |_| | | |  __/ |  | |_| |    | | |  __/ |_) | (_) | |  | |_
+ \__,_|_|   \__|_|_|_|\___|_|   \__, |    |_|  \___| .__/ \___/|_|   \__|
+                                |___/              |_|
+
+    </pre>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="text-center" id="page-title">Test run on <span id="timestamp">date</span></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-3">
+    <p><strong>Summary</strong></p>
+    <table class="table table-bordered table-hover table-condensed">
+      <tbody>
+        <tr>
+          <td>Test duration</td>
+          <td><span id="testDuration">0</span> sec</td>
+        </tr>
+        <tr>
+          <td>Scenarios created</td>
+          <td><span id="scenariosCreated">0</span></td>
+        </tr>
+
+        <tr>
+          <td>Scenarios completed</td>
+          <td><span id="scenariosCompleted">0</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-lg-5" id="scenarioCountsContainer">
+    <div>
+      <strong>Scenario counts:</strong>
+
+      <p></p>
+
+      <table class="table table-bordered table-hover table-condensed" id="scenarioCounts">
+      </table>
+    </div>
+  </div>
+
+  <div class="col-lg-1">
+    <div id="codesContainer">
+      <strong>Codes</strong>
+
+      <p></p>
+
+      <table class="table table-bordered table-hover table-condensed" id="codes">
+      </table>
+    </div>
+  </div>
+
+  <div class="col-lg-3">
+    <div id="errorsContainer">
+      <strong>Errors</strong>
+
+      <p></p>
+
+      <table class="table table-bordered table-hover table-condensed" id="errors">
+      </table>
+    </div>
+  </div>
+</div> <!-- /.row -->
+
+<div class="row">
+  <div class="text-center col-lg-12">
+    <h2>Charts</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="latency-histogram text-center col-lg-12"></div>
+</div>
+
+<div class="row">
+  <div class="latency text-center col-lg-12"></div>
+</div>
+
+<div class="latency-legend"></div>
+
+<div class="row">
+
+</div>
+
+<div class="row">
+  <div class="concurrency text-center col-lg-12"></div>
+</div>
+
+<div class="row">
+  <div class="rps-mean text-center col-lg-12"></div>
+</div>
+<div class="row">
+  <div class="rps-count text-center col-lg-12"></div>
+</div>
+
+<div class="row">
+  <div class="codes-line text-center col-lg-12"></div>
+</div>
+<div class="row">
+  <div class="errors-line text-center col-lg-12"></div>
+</div>
+
+
+  
+
+
+</div>
+
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2">
+    <h3 class="text-center">Raw report data</h3>
+    <p>This is the raw JSON stats output that the report was generated from.</p>
+    <div id="editor">
+    </div>
+  </div>
+</div>
+
+<script>
+var editor = ace.edit("editor");
+editor.getSession().setMode("ace/mode/javascript");
+editor.setValue(JSON.stringify(Report, null, 2));
+editor.gotoLine(1);editor.setHighlightActiveLine(false);
+
+var l = _;
+
+$('#timestamp').html(moment(Report.aggregate.timestamp).format('DD MMM YYYY HH:mm:SS'));
+$('#testDuration').html(l.size(Report.intermediate) * 10);
+$('#scenariosCompleted').html(Report.aggregate.scenariosCompleted);
+$('#scenariosCreated').html(Report.aggregate.scenariosCreated);
+
+var markers = [];
+if(l.size(Report.phases) > 0) {
+  markers = l.foldl(Report.phases, function(acc, phase, index) {
+    var label = phase.name || 'Phase ' + (index + 1);
+    var timestamp = (index === 0) ? 0 : Report.phases[index - 1].duration + acc[index - 1].timestamp;
+
+    acc.push({
+      timestamp: timestamp,
+      label: label
+    });
+
+    return acc;
+  }, []);
+}
+
+if (l.size(Report.aggregate.scenarioCounts) > 0) {
+  l.each(Report.aggregate.scenarioCounts, function(count, name) {
+    var $tdName = $('<td>' + name + '</td>');
+    var percentage = Math.round(count / Report.aggregate.scenariosCreated * 100 * 1000) / 1000;
+    var $tdCount = $('<td>' + count + ' (' + percentage + '%)' + '</td>');
+    var $el = $('<tr></tr>')
+      .append($tdName)
+      .append($tdCount)
+      .appendTo($('#scenarioCounts'));
+  });
+} else {
+  $('#scenarioCountsContainer').hide();
+}
+
+if (l.size(Report.aggregate.codes) > 0) {
+  l.each(Report.aggregate.codes, function(count, code) {
+    var anchor = '';
+    if (code >= 100 && code < 200) {
+      anchor = '#1xx_Informational';
+    } else if (code >= 200 && code < 300) {
+      anchor = '#2xx_Success';
+    } else if (code >= 300 && code < 400) {
+      anchor = '#3xx_Redirection';
+    } else if (code >= 400 && code < 500) {
+      anchor = '#4xx_Client_Error';
+    } else if (code >= 500 && code < 600) {
+      anchor = '#5xx_Server_Error';
+    }
+
+    var $a = $('<a>' + code + '</a>').attr('href', 'https://en.wikipedia.org/wiki/List_of_HTTP_status_codes' + anchor);
+    var $td = $('<td></td>').append($a);
+    var $el = $('<tr></tr>')
+      .append($td)
+      .append($('<td>' + count + '</td>'))
+      .appendTo($('#codes'));
+  });
+} else {
+  $('#codesContainer').hide();
+}
+
+if (l.size(Report.aggregate.errors) > 0) {
+  l.each(Report.aggregate.errors, function(count, code) {
+    var $el = $('<tr></tr>')
+      .append($('<td>' + code + '</td>'))
+      .append($('<td>' + count + '</td>'))
+      .appendTo($('#errors'));
+  });
+} else {
+  $('#errorsContainer > p').html('&#10004; Test completed without network or OS errors.');
+}
+
+var histogramData = l.map(Report.aggregate.latency, function(v, k) { return {bin: k, value: v} });
+
+MG.data_graphic({
+  chart_type: 'bar',
+  x_label: 'Percentile',
+  y_label: '(ms)',
+  animate_on_load: true,
+  title: 'Overall Latency Distribution',
+  description: 'Distribution of all observed response latencies',
+  target: '.latency-histogram',
+  data: histogramData,
+  x_accessor: 'bin',
+  y_accessor: 'value',
+  binned: true,
+  height: 250,
+  interpolate: 'monotone',
+  padding_percentage: 0,
+  bar_orientation: 'vertical',
+  width: 450
+});
+
+var chartData = l.map(
+  window.Report.intermediate,
+  function(o,i) {
+    return {
+      timestamp: i*10+10,
+
+      rpsMean: o.rps.mean,
+      rpsCount: o.rps.count,
+      concurrency: o.concurrency,
+      latencyMax: o.latency.max,
+      latencyp99: o.latency.p99,
+      latencyp95: o.latency.p95,
+      latencyMedian: o.latency.median,
+      latencyMin: o.latency.min
+    }
+  });
+
+//
+// Response codes
+//
+
+if (l.size(Report.aggregate.codes) > 0) {
+  var codesData = l.foldl(Report.intermediate, function(acc, o, i) {
+    var res = {};
+    res.timestamp = i*10+10;
+    l.each(o.codes, function(count, code) {
+      res[code] = count;
+    });
+    acc.push(res);
+    return acc;
+  }, []);
+  var uniqueCodes = l.foldl(Report.intermediate, function(acc, o) {
+    l.each(o.codes, function(count, code) {
+      if (l.indexOf(acc, code) === -1) {
+        acc.push(code);
+      }
+    });
+    return acc;
+  }, []);
+
+  MG.data_graphic({
+    x_label: 'Time',
+    y_label: 'Count',
+    title: 'HTTP codes',
+    description: 'Occurence of HTTP response codes',
+    target: '.codes-line',
+    data: codesData,
+    x_accessor: 'timestamp',
+    y_accessor: uniqueCodes,
+    legend: uniqueCodes,
+    right: 50,
+    chart_type: 'line',
+    area: false,
+    markers: markers,
+    width: 900
+  });
+}
+
+//
+// Errors
+//
+
+if (l.size(Report.aggregate.errors) > 0) {
+  var errorData = l.foldl(Report.intermediate, function(acc, o, i) {
+    var res = {};
+    res.timestamp = i*10+10;
+    l.each(o.errors, function(count, name) {
+      res[name] = count;
+    });
+    acc.push(res);
+    return acc;
+  }, []);
+  var uniqueErrors = l.foldl(Report.intermediate, function(acc, o) {
+    l.each(o.errors, function(count, name) {
+      if (l.indexOf(acc, name) === -1) {
+        acc.push(name);
+      }
+    });
+    return acc;
+  }, []);
+
+  MG.data_graphic({
+    title: 'Error Codes',
+    description: 'Occurence of error codes',
+    target: '.errors-line',
+    data: errorData,
+    x_accessor: 'timestamp',
+    y_accessor: uniqueErrors,
+    chart_type: 'line',
+    area: false,
+    markers: markers
+  });
+
+}
+
+//
+// Latency
+//
+MG.data_graphic({
+  chart_type: 'line',
+  x_label: 'Time',
+  y_label: '(ms)',
+  animate_on_load: true,
+  area: false,
+  title: "Latency At Intervals",
+  description: "Latency values at different points during the test run",
+  data: chartData,
+  target: '.latency',
+  width: 900,
+  x_accessor: 'timestamp',
+  y_accessor: ['latencyMin', 'latencyMedian', 'latencyp95', 'latencyMax'],
+  legend: ['min', 'p50', 'p95', 'max'],
+  //legend_target: '.latency-legend',
+  right: 50,
+  interpolate: 'monotone',
+  mouseover: function(d, i) {
+  },
+  markers: markers
+        });
+
+            MG.data_graphic({
+            animate_on_load: true,
+            area: false,
+            y_label: 'Count',
+            x_label: 'Time',
+            title: 'Concurrent users',
+            description: 'Concurrent users',
+            data: chartData,
+            target: '.concurrency',
+            x_accessor: 'timestamp',
+            y_accessor: ['concurrency'],
+            interpolate: 'monotone',
+            markers: markers,
+            width: 900
+            });
+
+MG.data_graphic({
+  animate_on_load: true,
+  area: false,
+  y_label: 'Count',
+  x_label: 'Time',
+  title: 'Mean RPS',
+  description: 'Mean requests per second',
+  data: chartData,
+  target: '.rps-mean',
+  x_accessor: 'timestamp',
+  y_accessor: ['rpsMean'],
+  interpolate: 'monotone',
+  markers: markers,
+  width: 900
+});
+
+MG.data_graphic({
+  animate_on_load: true,
+  area: false,
+  y_label: 'Count',
+  x_label: 'Time',
+  title: 'RPS Count',
+  description: 'Count of requests per second',
+  data: chartData,
+  target: '.rps-count',
+  x_accessor: 'timestamp',
+  y_accessor: ['rpsCount'],
+  interpolate: 'monotone',
+  markers: markers,
+  width: 900
+});
+</script>
+<div id="footer">
+  <footer>This report was created with <a href="https://artillery.io">Artillery</a> - free open-source load-testing for HTTP and WebSockets</footer>
+</div>
+</body>
+</html>

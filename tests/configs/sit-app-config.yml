@@ -1,0 +1,9 @@
+config:
+  target: "https://sit-app.outsmartemr.com"
+  http:
+    timeout: 30
+  plugins:
+    metrics-by-endpoint: {}
+  phases:
+    - duration: 300
+      arrivalCount: 50000

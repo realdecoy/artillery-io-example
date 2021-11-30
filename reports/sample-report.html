@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Artillery report</title>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.0/d3.min.js' charset='utf-8'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.6.0/metricsgraphics.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/metrics-graphics/2.6.0/metricsgraphics.min.js"></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+  <link href='https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js" charset="utf-8"></script>
+
+  <style>
+  body, p, li {
+    font-family: sans-serif;
+    font-size: 10pt;
+  }
+
+  h1 {
+    font-size: 18pt;
+    font-weight: bold;
+  }
+
+  #errorsContainer > p {
+    color: #009900;
+  }
+
+  #footer {
+    padding: 1em;
+    font-size: 0.8em;
+    color: #999;
+    text-align: center;
+    margin-top: 1em;
+    background-color: #eee;
+  }
+  #editor {
+    font-size: 8pt;
+    height: 20em;
+  }
+  </style>
+
+  <script>
+  window.Report = {
+  "aggregate": {
+    "timestamp": "2021-11-05T16:12:10.247Z",
+    "scenariosCreated": 500,
+    "scenariosCompleted": 500,
+    "requestsCompleted": 4268,
+    "latency": {
+      "min": 60,
+      "max": 3875,
+      "median": 79,
+      "p95": 216,
+      "p99": 1219.5
+    },
+    "rps": {
+      "count": 4442,
+      "mean": 22.84
+    },
+    "scenarioDuration": {
+      "min": 372.5,
+      "max": 15930.4,
+      "median": 3392.6,
+      "p95": 15458.9,
+      "p99": 15659.4
+    },
+    "scenarioCounts": {
+      "Login Redirect": 59,
+      "Navigate to Dispensary": 56,
+      "Dashboard Arrival": 68,
+      "Dispensary - add new distributor": 62,
+      "Dispensary - add new Manufacturer": 56,
+      "Dispensary - add new category": 56,
+      "Selecting Office": 64,
+      "Open Calendar": 79
+    },
+    "errors": {
+      "ETIMEDOUT": 161
+    },
+    "codes": {
+      "200": 3198,
+      "302": 1011,
+      "404": 59
+    },
+    "matches": 0,
+    "customStats": {},
+    "counters": {},
+    "scenariosAvoided": 0,
+    "phases": [
+      {
+        "duration": 180,
+        "arrivalCount": 500
+      }
+    ]
+  },
+  "intermediate": [
+    {
+      "timestamp": "2021-11-05T16:09:05.442Z",
+      "scenariosCreated": 27,
+      "scenariosCompleted": 19,
+      "requestsCompleted": 142,
+      "latency": {
+        "min": 60,
+        "max": 1769,
+        "median": 85,
+        "p95": 221.4,
+        "p99": 1666
+      },
+      "rps": {
+        "count": 158,
+        "mean": 16.37
+      },
+      "scenarioDuration": {
+        "min": 379.8,
+        "max": 3537.9,
+        "median": 416.5,
+        "p95": 3508.9,
+        "p99": 3537.9
+      },
+      "scenarioCounts": {
+        "Login Redirect": 5,
+        "Navigate to Dispensary": 4,
+        "Dashboard Arrival": 4,
+        "Dispensary - add new distributor": 4,
+        "Dispensary - add new Manufacturer": 3,
+        "Dispensary - add new category": 6,
+        "Selecting Office": 1
+      },
+      "errors": {},
+      "codes": {
+        "200": 71,
+        "302": 66,
+        "404": 5
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 8,
+      "pendingRequests": 16,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:09:15.436Z",
+      "scenariosCreated": 28,
+      "scenariosCompleted": 25,
+      "requestsCompleted": 229,
+      "latency": {
+        "min": 60,
+        "max": 1446,
+        "median": 80,
+        "p95": 204.1,
+        "p99": 1179.4
+      },
+      "rps": {
+        "count": 239,
+        "mean": 23.92
+      },
+      "scenarioDuration": {
+        "min": 380.1,
+        "max": 15457.5,
+        "median": 1278.4,
+        "p95": 15416.1,
+        "p99": 15457.5
+      },
+      "scenarioCounts": {
+        "Selecting Office": 5,
+        "Dispensary - add new category": 6,
+        "Login Redirect": 5,
+        "Dashboard Arrival": 5,
+        "Dispensary - add new Manufacturer": 3,
+        "Open Calendar": 2,
+        "Dispensary - add new distributor": 2
+      },
+      "errors": {},
+      "codes": {
+        "200": 151,
+        "302": 74,
+        "404": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 11,
+      "pendingRequests": 26,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:09:25.447Z",
+      "scenariosCreated": 28,
+      "scenariosCompleted": 25,
+      "requestsCompleted": 254,
+      "latency": {
+        "min": 61,
+        "max": 1673,
+        "median": 79.5,
+        "p95": 211.4,
+        "p99": 1301.5
+      },
+      "rps": {
+        "count": 263,
+        "mean": 26.38
+      },
+      "scenarioDuration": {
+        "min": 376.5,
+        "max": 15658,
+        "median": 3414.2,
+        "p95": 15641.3,
+        "p99": 15658
+      },
+      "scenarioCounts": {
+        "Selecting Office": 4,
+        "Dispensary - add new distributor": 6,
+        "Open Calendar": 5,
+        "Login Redirect": 3,
+        "Navigate to Dispensary": 4,
+        "Dashboard Arrival": 3,
+        "Dispensary - add new category": 1,
+        "Dispensary - add new Manufacturer": 2
+      },
+      "errors": {},
+      "codes": {
+        "200": 192,
+        "302": 58,
+        "404": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 14,
+      "pendingRequests": 35,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:09:35.449Z",
+      "scenariosCreated": 28,
+      "scenariosCompleted": 30,
+      "requestsCompleted": 185,
+      "latency": {
+        "min": 63,
+        "max": 304,
+        "median": 81,
+        "p95": 202.8,
+        "p99": 252.2
+      },
+      "rps": {
+        "count": 198,
+        "mean": 19.92
+      },
+      "scenarioDuration": {
+        "min": 376.1,
+        "max": 15446.8,
+        "median": 1302.6,
+        "p95": 15444.1,
+        "p99": 15446.8
+      },
+      "scenarioCounts": {
+        "Dashboard Arrival": 3,
+        "Dispensary - add new Manufacturer": 5,
+        "Dispensary - add new distributor": 4,
+        "Navigate to Dispensary": 3,
+        "Dispensary - add new category": 4,
+        "Open Calendar": 4,
+        "Selecting Office": 3,
+        "Login Redirect": 2
+      },
+      "errors": {
+        "ETIMEDOUT": 12
+      },
+      "codes": {
+        "200": 151,
+        "302": 34
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 12,
+      "pendingRequests": 48,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:09:45.457Z",
+      "scenariosCreated": 27,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 263,
+      "latency": {
+        "min": 60,
+        "max": 2146,
+        "median": 81,
+        "p95": 233.4,
+        "p99": 1347.1
+      },
+      "rps": {
+        "count": 280,
+        "mean": 28.23
+      },
+      "scenarioDuration": {
+        "min": 378.7,
+        "max": 15665.8,
+        "median": 3450,
+        "p95": 15646.4,
+        "p99": 15665.8
+      },
+      "scenarioCounts": {
+        "Login Redirect": 6,
+        "Navigate to Dispensary": 1,
+        "Open Calendar": 3,
+        "Dispensary - add new Manufacturer": 7,
+        "Dispensary - add new distributor": 4,
+        "Dispensary - add new category": 2,
+        "Dashboard Arrival": 3,
+        "Selecting Office": 1
+      },
+      "errors": {
+        "ETIMEDOUT": 12
+      },
+      "codes": {
+        "200": 171,
+        "302": 86,
+        "404": 6
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 10,
+      "pendingRequests": 65,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:09:55.465Z",
+      "scenariosCreated": 28,
+      "scenariosCompleted": 24,
+      "requestsCompleted": 212,
+      "latency": {
+        "min": 71,
+        "max": 1708,
+        "median": 81,
+        "p95": 244.2,
+        "p99": 1430.3
+      },
+      "rps": {
+        "count": 223,
+        "mean": 22.28
+      },
+      "scenarioDuration": {
+        "min": 380.1,
+        "max": 15462,
+        "median": 896.1,
+        "p95": 15460.3,
+        "p99": 15462
+      },
+      "scenarioCounts": {
+        "Dashboard Arrival": 3,
+        "Dispensary - add new distributor": 2,
+        "Dispensary - add new Manufacturer": 1,
+        "Login Redirect": 3,
+        "Open Calendar": 6,
+        "Dispensary - add new category": 8,
+        "Selecting Office": 1,
+        "Navigate to Dispensary": 4
+      },
+      "errors": {
+        "ETIMEDOUT": 8
+      },
+      "codes": {
+        "200": 156,
+        "302": 52,
+        "404": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 14,
+      "pendingRequests": 76,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:10:05.471Z",
+      "scenariosCreated": 28,
+      "scenariosCompleted": 26,
+      "requestsCompleted": 270,
+      "latency": {
+        "min": 60,
+        "max": 3875,
+        "median": 79.5,
+        "p95": 195,
+        "p99": 3041.6
+      },
+      "rps": {
+        "count": 275,
+        "mean": 27.5
+      },
+      "scenarioDuration": {
+        "min": 384,
+        "max": 15642.5,
+        "median": 3459.8,
+        "p95": 15490.8,
+        "p99": 15642.5
+      },
+      "scenarioCounts": {
+        "Dispensary - add new Manufacturer": 2,
+        "Dashboard Arrival": 6,
+        "Navigate to Dispensary": 3,
+        "Selecting Office": 5,
+        "Dispensary - add new distributor": 2,
+        "Login Redirect": 6,
+        "Open Calendar": 4
+      },
+      "errors": {
+        "ETIMEDOUT": 14
+      },
+      "codes": {
+        "200": 193,
+        "302": 73,
+        "404": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 81,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:10:15.474Z",
+      "scenariosCreated": 28,
+      "scenariosCompleted": 32,
+      "requestsCompleted": 251,
+      "latency": {
+        "min": 61,
+        "max": 3457,
+        "median": 81,
+        "p95": 247.7,
+        "p99": 3082.5
+      },
+      "rps": {
+        "count": 257,
+        "mean": 25.7
+      },
+      "scenarioDuration": {
+        "min": 376.4,
+        "max": 15736.1,
+        "median": 3392,
+        "p95": 15498.7,
+        "p99": 15736.1
+      },
+      "scenarioCounts": {
+        "Dispensary - add new distributor": 4,
+        "Selecting Office": 5,
+        "Navigate to Dispensary": 8,
+        "Open Calendar": 4,
+        "Dispensary - add new category": 5,
+        "Dispensary - add new Manufacturer": 1,
+        "Login Redirect": 1
+      },
+      "errors": {
+        "ETIMEDOUT": 12
+      },
+      "codes": {
+        "200": 189,
+        "302": 58,
+        "404": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 12,
+      "pendingRequests": 87,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:10:25.476Z",
+      "scenariosCreated": 28,
+      "scenariosCompleted": 25,
+      "requestsCompleted": 177,
+      "latency": {
+        "min": 60,
+        "max": 1387,
+        "median": 76,
+        "p95": 234.3,
+        "p99": 1046.6
+      },
+      "rps": {
+        "count": 183,
+        "mean": 18.6
+      },
+      "scenarioDuration": {
+        "min": 378.6,
+        "max": 15930.4,
+        "median": 3419.5,
+        "p95": 15573.9,
+        "p99": 15930.4
+      },
+      "scenarioCounts": {
+        "Selecting Office": 2,
+        "Dispensary - add new distributor": 2,
+        "Dispensary - add new category": 2,
+        "Navigate to Dispensary": 5,
+        "Dispensary - add new Manufacturer": 1,
+        "Open Calendar": 5,
+        "Dashboard Arrival": 6,
+        "Login Redirect": 5
+      },
+      "errors": {
+        "ETIMEDOUT": 12
+      },
+      "codes": {
+        "200": 125,
+        "302": 49,
+        "404": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 15,
+      "pendingRequests": 93,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:10:35.495Z",
+      "scenariosCreated": 27,
+      "scenariosCompleted": 21,
+      "requestsCompleted": 325,
+      "latency": {
+        "min": 60,
+        "max": 1470,
+        "median": 78,
+        "p95": 210,
+        "p99": 549.8
+      },
+      "rps": {
+        "count": 333,
+        "mean": 33.27
+      },
+      "scenarioDuration": {
+        "min": 401.4,
+        "max": 15406.7,
+        "median": 3443.2,
+        "p95": 15397,
+        "p99": 15406.7
+      },
+      "scenarioCounts": {
+        "Open Calendar": 7,
+        "Dashboard Arrival": 8,
+        "Dispensary - add new Manufacturer": 1,
+        "Selecting Office": 4,
+        "Navigate to Dispensary": 2,
+        "Login Redirect": 1,
+        "Dispensary - add new distributor": 3,
+        "Dispensary - add new category": 1
+      },
+      "errors": {
+        "ETIMEDOUT": 4
+      },
+      "codes": {
+        "200": 265,
+        "302": 57,
+        "404": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 21,
+      "pendingRequests": 101,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:10:45.496Z",
+      "scenariosCreated": 28,
+      "scenariosCompleted": 33,
+      "requestsCompleted": 311,
+      "latency": {
+        "min": 62,
+        "max": 1182,
+        "median": 77,
+        "p95": 202.9,
+        "p99": 259
+      },
+      "rps": {
+        "count": 317,
+        "mean": 31.7
+      },
+      "scenarioDuration": {
+        "min": 382.9,
+        "max": 15660.8,
+        "median": 3506.6,
+        "p95": 15465.4,
+        "p99": 15660.8
+      },
+      "scenarioCounts": {
+        "Dashboard Arrival": 5,
+        "Dispensary - add new Manufacturer": 8,
+        "Login Redirect": 1,
+        "Open Calendar": 3,
+        "Navigate to Dispensary": 4,
+        "Selecting Office": 3,
+        "Dispensary - add new category": 3,
+        "Dispensary - add new distributor": 1
+      },
+      "errors": {
+        "ETIMEDOUT": 10
+      },
+      "codes": {
+        "200": 276,
+        "302": 34,
+        "404": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 16,
+      "pendingRequests": 107,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:10:55.499Z",
+      "scenariosCreated": 28,
+      "scenariosCompleted": 32,
+      "requestsCompleted": 201,
+      "latency": {
+        "min": 60,
+        "max": 1283,
+        "median": 81,
+        "p95": 228.8,
+        "p99": 400.5
+      },
+      "rps": {
+        "count": 217,
+        "mean": 21.74
+      },
+      "scenarioDuration": {
+        "min": 381.3,
+        "max": 15881.6,
+        "median": 1290.4,
+        "p95": 15501.8,
+        "p99": 15881.6
+      },
+      "scenarioCounts": {
+        "Open Calendar": 7,
+        "Dispensary - add new Manufacturer": 6,
+        "Dashboard Arrival": 1,
+        "Selecting Office": 2,
+        "Dispensary - add new distributor": 6,
+        "Navigate to Dispensary": 1,
+        "Login Redirect": 3,
+        "Dispensary - add new category": 2
+      },
+      "errors": {
+        "ETIMEDOUT": 5
+      },
+      "codes": {
+        "200": 167,
+        "302": 33,
+        "404": 1
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 12,
+      "pendingRequests": 123,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:11:05.506Z",
+      "scenariosCreated": 28,
+      "scenariosCompleted": 26,
+      "requestsCompleted": 232,
+      "latency": {
+        "min": 63,
+        "max": 1350,
+        "median": 78,
+        "p95": 226.7,
+        "p99": 1279.5
+      },
+      "rps": {
+        "count": 240,
+        "mean": 24
+      },
+      "scenarioDuration": {
+        "min": 392.3,
+        "max": 15454.7,
+        "median": 3439.7,
+        "p95": 15429.7,
+        "p99": 15454.7
+      },
+      "scenarioCounts": {
+        "Dashboard Arrival": 4,
+        "Dispensary - add new Manufacturer": 4,
+        "Selecting Office": 4,
+        "Open Calendar": 6,
+        "Login Redirect": 5,
+        "Dispensary - add new category": 2,
+        "Navigate to Dispensary": 3
+      },
+      "errors": {
+        "ETIMEDOUT": 5
+      },
+      "codes": {
+        "200": 154,
+        "302": 72,
+        "404": 6
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 14,
+      "pendingRequests": 131,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:11:15.514Z",
+      "scenariosCreated": 28,
+      "scenariosCompleted": 25,
+      "requestsCompleted": 254,
+      "latency": {
+        "min": 60,
+        "max": 1790,
+        "median": 78,
+        "p95": 212.6,
+        "p99": 295
+      },
+      "rps": {
+        "count": 258,
+        "mean": 25.9
+      },
+      "scenarioDuration": {
+        "min": 388.2,
+        "max": 15602.7,
+        "median": 3430.2,
+        "p95": 15479.2,
+        "p99": 15602.7
+      },
+      "scenarioCounts": {
+        "Open Calendar": 9,
+        "Dispensary - add new distributor": 4,
+        "Navigate to Dispensary": 1,
+        "Dashboard Arrival": 4,
+        "Selecting Office": 5,
+        "Dispensary - add new category": 2,
+        "Dispensary - add new Manufacturer": 2,
+        "Login Redirect": 1
+      },
+      "errors": {
+        "ETIMEDOUT": 12
+      },
+      "codes": {
+        "200": 208,
+        "302": 44,
+        "404": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 17,
+      "pendingRequests": 135,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:11:25.529Z",
+      "scenariosCreated": 27,
+      "scenariosCompleted": 31,
+      "requestsCompleted": 255,
+      "latency": {
+        "min": 64,
+        "max": 1996,
+        "median": 83,
+        "p95": 213.5,
+        "p99": 1645.8
+      },
+      "rps": {
+        "count": 265,
+        "mean": 26.45
+      },
+      "scenarioDuration": {
+        "min": 376.7,
+        "max": 15637.3,
+        "median": 3453.4,
+        "p95": 15457.6,
+        "p99": 15637.3
+      },
+      "scenarioCounts": {
+        "Dispensary - add new distributor": 6,
+        "Open Calendar": 3,
+        "Dispensary - add new Manufacturer": 3,
+        "Navigate to Dispensary": 3,
+        "Login Redirect": 4,
+        "Selecting Office": 2,
+        "Dashboard Arrival": 4,
+        "Dispensary - add new category": 2
+      },
+      "errors": {
+        "ETIMEDOUT": 13
+      },
+      "codes": {
+        "200": 191,
+        "302": 60,
+        "404": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 13,
+      "pendingRequests": 145,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:11:35.530Z",
+      "scenariosCreated": 28,
+      "scenariosCompleted": 31,
+      "requestsCompleted": 219,
+      "latency": {
+        "min": 61,
+        "max": 1081,
+        "median": 77,
+        "p95": 219.1,
+        "p99": 557
+      },
+      "rps": {
+        "count": 231,
+        "mean": 23.1
+      },
+      "scenarioDuration": {
+        "min": 378.4,
+        "max": 15638,
+        "median": 1303.7,
+        "p95": 15472.8,
+        "p99": 15638
+      },
+      "scenarioCounts": {
+        "Dispensary - add new Manufacturer": 1,
+        "Navigate to Dispensary": 3,
+        "Dispensary - add new distributor": 4,
+        "Dashboard Arrival": 3,
+        "Selecting Office": 6,
+        "Open Calendar": 4,
+        "Dispensary - add new category": 5,
+        "Login Redirect": 2
+      },
+      "errors": {
+        "ETIMEDOUT": 7
+      },
+      "codes": {
+        "200": 168,
+        "302": 49,
+        "404": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 10,
+      "pendingRequests": 157,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:11:45.544Z",
+      "scenariosCreated": 28,
+      "scenariosCompleted": 27,
+      "requestsCompleted": 181,
+      "latency": {
+        "min": 64,
+        "max": 1497,
+        "median": 82,
+        "p95": 217.3,
+        "p99": 1062
+      },
+      "rps": {
+        "count": 192,
+        "mean": 19.26
+      },
+      "scenarioDuration": {
+        "min": 372.5,
+        "max": 15461.3,
+        "median": 1282.4,
+        "p95": 15395.7,
+        "p99": 15461.3
+      },
+      "scenarioCounts": {
+        "Selecting Office": 5,
+        "Dispensary - add new Manufacturer": 4,
+        "Dispensary - add new distributor": 3,
+        "Dashboard Arrival": 3,
+        "Navigate to Dispensary": 4,
+        "Open Calendar": 3,
+        "Dispensary - add new category": 3,
+        "Login Redirect": 3
+      },
+      "errors": {
+        "ETIMEDOUT": 7
+      },
+      "codes": {
+        "200": 136,
+        "302": 43,
+        "404": 2
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 11,
+      "pendingRequests": 168,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:11:55.555Z",
+      "scenariosCreated": 28,
+      "scenariosCompleted": 29,
+      "requestsCompleted": 211,
+      "latency": {
+        "min": 60,
+        "max": 2304,
+        "median": 77,
+        "p95": 208,
+        "p99": 1647.7
+      },
+      "rps": {
+        "count": 220,
+        "mean": 22.07
+      },
+      "scenarioDuration": {
+        "min": 385.2,
+        "max": 15609,
+        "median": 3383.4,
+        "p95": 15403.6,
+        "p99": 15609
+      },
+      "scenarioCounts": {
+        "Navigate to Dispensary": 3,
+        "Dispensary - add new Manufacturer": 2,
+        "Selecting Office": 6,
+        "Dispensary - add new distributor": 5,
+        "Dispensary - add new category": 2,
+        "Dashboard Arrival": 3,
+        "Open Calendar": 4,
+        "Login Redirect": 3
+      },
+      "errors": {
+        "ETIMEDOUT": 11
+      },
+      "codes": {
+        "200": 141,
+        "302": 66,
+        "404": 4
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 10,
+      "pendingRequests": 177,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:12:05.567Z",
+      "scenariosCreated": 0,
+      "scenariosCompleted": 8,
+      "requestsCompleted": 83,
+      "latency": {
+        "min": 70,
+        "max": 234,
+        "median": 76,
+        "p95": 92,
+        "p99": 225.8
+      },
+      "rps": {
+        "count": 81,
+        "mean": 8.17
+      },
+      "scenarioDuration": {
+        "min": 398.3,
+        "max": 15453.1,
+        "median": 10161.3,
+        "p95": 15453.1,
+        "p99": 15453.1
+      },
+      "scenarioCounts": {},
+      "errors": {
+        "ETIMEDOUT": 10
+      },
+      "codes": {
+        "200": 80,
+        "302": 3
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 2,
+      "pendingRequests": 175,
+      "scenariosAvoided": 0
+    },
+    {
+      "timestamp": "2021-11-05T16:12:10.221Z",
+      "scenariosCreated": 0,
+      "scenariosCompleted": 2,
+      "requestsCompleted": 13,
+      "latency": {
+        "min": 74,
+        "max": 94,
+        "median": 77,
+        "p95": 93.1,
+        "p99": 94
+      },
+      "rps": {
+        "count": 12,
+        "mean": 2.93
+      },
+      "scenarioDuration": {
+        "min": 15387.5,
+        "max": 15417.3,
+        "median": 15402.4,
+        "p95": 15417.3,
+        "p99": 15417.3
+      },
+      "scenarioCounts": {},
+      "errors": {
+        "ETIMEDOUT": 7
+      },
+      "codes": {
+        "200": 13
+      },
+      "matches": 0,
+      "customStats": {},
+      "counters": {},
+      "concurrency": 0,
+      "pendingRequests": 174,
+      "scenariosAvoided": 0
+    }
+  ]
+};
+  </script>
+
+  <style>
+      h1 {
+        line-height: 200%;
+      }
+
+      body {
+          background-color: #fcfcfc;
+      }
+
+      .container {
+          width: 100%;
+          min-width: 960px;
+      }
+  </style>
+
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="row" id="header">
+  <div class="col-lg-4 col-lg-offset-4">
+    <pre style="font-size: 5pt; background-color: #fcfcfc; border: none;">
+            _   _ _ _                                                _
+  __ _ _ __| |_(_) | | ___ _ __ _   _      _ __ ___ _ __   ___  _ __| |_
+ / _` | '__| __| | | |/ _ \ '__| | | |    | '__/ _ \ '_ \ / _ \| '__| __|
+| (_| | |  | |_| | | |  __/ |  | |_| |    | | |  __/ |_) | (_) | |  | |_
+ \__,_|_|   \__|_|_|_|\___|_|   \__, |    |_|  \___| .__/ \___/|_|   \__|
+                                |___/              |_|
+
+    </pre>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="text-center" id="page-title">Test run on <span id="timestamp">date</span></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-3">
+    <p><strong>Summary</strong></p>
+    <table class="table table-bordered table-hover table-condensed">
+      <tbody>
+        <tr>
+          <td>Test duration</td>
+          <td><span id="testDuration">0</span> sec</td>
+        </tr>
+        <tr>
+          <td>Scenarios created</td>
+          <td><span id="scenariosCreated">0</span></td>
+        </tr>
+
+        <tr>
+          <td>Scenarios completed</td>
+          <td><span id="scenariosCompleted">0</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-lg-5" id="scenarioCountsContainer">
+    <div>
+      <strong>Scenario counts:</strong>
+
+      <p></p>
+
+      <table class="table table-bordered table-hover table-condensed" id="scenarioCounts">
+      </table>
+    </div>
+  </div>
+
+  <div class="col-lg-1">
+    <div id="codesContainer">
+      <strong>Codes</strong>
+
+      <p></p>
+
+      <table class="table table-bordered table-hover table-condensed" id="codes">
+      </table>
+    </div>
+  </div>
+
+  <div class="col-lg-3">
+    <div id="errorsContainer">
+      <strong>Errors</strong>
+
+      <p></p>
+
+      <table class="table table-bordered table-hover table-condensed" id="errors">
+      </table>
+    </div>
+  </div>
+</div> <!-- /.row -->
+
+<div class="row">
+  <div class="text-center col-lg-12">
+    <h2>Charts</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="latency-histogram text-center col-lg-12"></div>
+</div>
+
+<div class="row">
+  <div class="latency text-center col-lg-12"></div>
+</div>
+
+<div class="latency-legend"></div>
+
+<div class="row">
+
+</div>
+
+<div class="row">
+  <div class="concurrency text-center col-lg-12"></div>
+</div>
+
+<div class="row">
+  <div class="rps-mean text-center col-lg-12"></div>
+</div>
+<div class="row">
+  <div class="rps-count text-center col-lg-12"></div>
+</div>
+
+<div class="row">
+  <div class="codes-line text-center col-lg-12"></div>
+</div>
+<div class="row">
+  <div class="errors-line text-center col-lg-12"></div>
+</div>
+
+
+  
+
+
+</div>
+
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2">
+    <h3 class="text-center">Raw report data</h3>
+    <p>This is the raw JSON stats output that the report was generated from.</p>
+    <div id="editor">
+    </div>
+  </div>
+</div>
+
+<script>
+var editor = ace.edit("editor");
+editor.getSession().setMode("ace/mode/javascript");
+editor.setValue(JSON.stringify(Report, null, 2));
+editor.gotoLine(1);editor.setHighlightActiveLine(false);
+
+var l = _;
+
+$('#timestamp').html(moment(Report.aggregate.timestamp).format('DD MMM YYYY HH:mm:SS'));
+$('#testDuration').html(l.size(Report.intermediate) * 10);
+$('#scenariosCompleted').html(Report.aggregate.scenariosCompleted);
+$('#scenariosCreated').html(Report.aggregate.scenariosCreated);
+
+var markers = [];
+if(l.size(Report.phases) > 0) {
+  markers = l.foldl(Report.phases, function(acc, phase, index) {
+    var label = phase.name || 'Phase ' + (index + 1);
+    var timestamp = (index === 0) ? 0 : Report.phases[index - 1].duration + acc[index - 1].timestamp;
+
+    acc.push({
+      timestamp: timestamp,
+      label: label
+    });
+
+    return acc;
+  }, []);
+}
+
+if (l.size(Report.aggregate.scenarioCounts) > 0) {
+  l.each(Report.aggregate.scenarioCounts, function(count, name) {
+    var $tdName = $('<td>' + name + '</td>');
+    var percentage = Math.round(count / Report.aggregate.scenariosCreated * 100 * 1000) / 1000;
+    var $tdCount = $('<td>' + count + ' (' + percentage + '%)' + '</td>');
+    var $el = $('<tr></tr>')
+      .append($tdName)
+      .append($tdCount)
+      .appendTo($('#scenarioCounts'));
+  });
+} else {
+  $('#scenarioCountsContainer').hide();
+}
+
+if (l.size(Report.aggregate.codes) > 0) {
+  l.each(Report.aggregate.codes, function(count, code) {
+    var anchor = '';
+    if (code >= 100 && code < 200) {
+      anchor = '#1xx_Informational';
+    } else if (code >= 200 && code < 300) {
+      anchor = '#2xx_Success';
+    } else if (code >= 300 && code < 400) {
+      anchor = '#3xx_Redirection';
+    } else if (code >= 400 && code < 500) {
+      anchor = '#4xx_Client_Error';
+    } else if (code >= 500 && code < 600) {
+      anchor = '#5xx_Server_Error';
+    }
+
+    var $a = $('<a>' + code + '</a>').attr('href', 'https://en.wikipedia.org/wiki/List_of_HTTP_status_codes' + anchor);
+    var $td = $('<td></td>').append($a);
+    var $el = $('<tr></tr>')
+      .append($td)
+      .append($('<td>' + count + '</td>'))
+      .appendTo($('#codes'));
+  });
+} else {
+  $('#codesContainer').hide();
+}
+
+if (l.size(Report.aggregate.errors) > 0) {
+  l.each(Report.aggregate.errors, function(count, code) {
+    var $el = $('<tr></tr>')
+      .append($('<td>' + code + '</td>'))
+      .append($('<td>' + count + '</td>'))
+      .appendTo($('#errors'));
+  });
+} else {
+  $('#errorsContainer > p').html('&#10004; Test completed without network or OS errors.');
+}
+
+var histogramData = l.map(Report.aggregate.latency, function(v, k) { return {bin: k, value: v} });
+
+MG.data_graphic({
+  chart_type: 'bar',
+  x_label: 'Percentile',
+  y_label: '(ms)',
+  animate_on_load: true,
+  title: 'Overall Latency Distribution',
+  description: 'Distribution of all observed response latencies',
+  target: '.latency-histogram',
+  data: histogramData,
+  x_accessor: 'bin',
+  y_accessor: 'value',
+  binned: true,
+  height: 250,
+  interpolate: 'monotone',
+  padding_percentage: 0,
+  bar_orientation: 'vertical',
+  width: 450
+});
+
+var chartData = l.map(
+  window.Report.intermediate,
+  function(o,i) {
+    return {
+      timestamp: i*10+10,
+
+      rpsMean: o.rps.mean,
+      rpsCount: o.rps.count,
+      concurrency: o.concurrency,
+      latencyMax: o.latency.max,
+      latencyp99: o.latency.p99,
+      latencyp95: o.latency.p95,
+      latencyMedian: o.latency.median,
+      latencyMin: o.latency.min
+    }
+  });
+
+//
+// Response codes
+//
+
+if (l.size(Report.aggregate.codes) > 0) {
+  var codesData = l.foldl(Report.intermediate, function(acc, o, i) {
+    var res = {};
+    res.timestamp = i*10+10;
+    l.each(o.codes, function(count, code) {
+      res[code] = count;
+    });
+    acc.push(res);
+    return acc;
+  }, []);
+  var uniqueCodes = l.foldl(Report.intermediate, function(acc, o) {
+    l.each(o.codes, function(count, code) {
+      if (l.indexOf(acc, code) === -1) {
+        acc.push(code);
+      }
+    });
+    return acc;
+  }, []);
+
+  MG.data_graphic({
+    x_label: 'Time',
+    y_label: 'Count',
+    title: 'HTTP codes',
+    description: 'Occurence of HTTP response codes',
+    target: '.codes-line',
+    data: codesData,
+    x_accessor: 'timestamp',
+    y_accessor: uniqueCodes,
+    legend: uniqueCodes,
+    right: 50,
+    chart_type: 'line',
+    area: false,
+    markers: markers,
+    width: 900
+  });
+}
+
+//
+// Errors
+//
+
+if (l.size(Report.aggregate.errors) > 0) {
+  var errorData = l.foldl(Report.intermediate, function(acc, o, i) {
+    var res = {};
+    res.timestamp = i*10+10;
+    l.each(o.errors, function(count, name) {
+      res[name] = count;
+    });
+    acc.push(res);
+    return acc;
+  }, []);
+  var uniqueErrors = l.foldl(Report.intermediate, function(acc, o) {
+    l.each(o.errors, function(count, name) {
+      if (l.indexOf(acc, name) === -1) {
+        acc.push(name);
+      }
+    });
+    return acc;
+  }, []);
+
+  MG.data_graphic({
+    title: 'Error Codes',
+    description: 'Occurence of error codes',
+    target: '.errors-line',
+    data: errorData,
+    x_accessor: 'timestamp',
+    y_accessor: uniqueErrors,
+    chart_type: 'line',
+    area: false,
+    markers: markers
+  });
+
+}
+
+//
+// Latency
+//
+MG.data_graphic({
+  chart_type: 'line',
+  x_label: 'Time',
+  y_label: '(ms)',
+  animate_on_load: true,
+  area: false,
+  title: "Latency At Intervals",
+  description: "Latency values at different points during the test run",
+  data: chartData,
+  target: '.latency',
+  width: 900,
+  x_accessor: 'timestamp',
+  y_accessor: ['latencyMin', 'latencyMedian', 'latencyp95', 'latencyMax'],
+  legend: ['min', 'p50', 'p95', 'max'],
+  //legend_target: '.latency-legend',
+  right: 50,
+  interpolate: 'monotone',
+  mouseover: function(d, i) {
+  },
+  markers: markers
+        });
+
+            MG.data_graphic({
+            animate_on_load: true,
+            area: false,
+            y_label: 'Count',
+            x_label: 'Time',
+            title: 'Concurrent users',
+            description: 'Concurrent users',
+            data: chartData,
+            target: '.concurrency',
+            x_accessor: 'timestamp',
+            y_accessor: ['concurrency'],
+            interpolate: 'monotone',
+            markers: markers,
+            width: 900
+            });
+
+MG.data_graphic({
+  animate_on_load: true,
+  area: false,
+  y_label: 'Count',
+  x_label: 'Time',
+  title: 'Mean RPS',
+  description: 'Mean requests per second',
+  data: chartData,
+  target: '.rps-mean',
+  x_accessor: 'timestamp',
+  y_accessor: ['rpsMean'],
+  interpolate: 'monotone',
+  markers: markers,
+  width: 900
+});
+
+MG.data_graphic({
+  animate_on_load: true,
+  area: false,
+  y_label: 'Count',
+  x_label: 'Time',
+  title: 'RPS Count',
+  description: 'Count of requests per second',
+  data: chartData,
+  target: '.rps-count',
+  x_accessor: 'timestamp',
+  y_accessor: ['rpsCount'],
+  interpolate: 'monotone',
+  markers: markers,
+  width: 900
+});
+</script>
+<div id="footer">
+  <footer>This report was created with <a href="https://artillery.io">Artillery</a> - free open-source load-testing for HTTP and WebSockets</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+before:
+  flow:
+    - log: "Login"
+    - post:
+        url: "/AJAXSS.php"
+        json:
+          email: "test.practitioner@example.com"
+          password: "password"
+
+scenarios:
+  - name: "Patient Searching"
+    flow:
+      - get:
+          url: "/SND/templates/practitioner/index.php"
+      - think: 3
+      - get:
+          url: "/SND/templates/practitioner/office-details.php?OID=11"
+      - think: 3
+      - post:
+          url: "/AJAXSS.php"
+          json:
+            term: "Danhai"
+            topic: "Pt"
+      - think: 3
+
+  - name: "Document Searching"
+    flow:
+      - get:
+          url: "/SND/templates/practitioner/index.php"
+      - think: 3
+      - get:
+          url: "/SND/templates/practitioner/office-details.php?OID=11"
+      - think: 3
+      - post:
+          url: "/AJAXSS.php"
+          json:
+            term: "0.png"
+            topic: "Doc"
+      - think: 3
+
+  - name: "Appointments Searching"
+    flow:
+      - get:
+          url: "/SND/templates/practitioner/index.php"
+      - think: 3
+      - get:
+          url: "/SND/templates/practitioner/office-details.php?OID=11"
+      - think: 3
+      - post:
+          url: "/AJAXSS.php"
+          json:
+            term: "Danhai"
+            topic: "Appt"
+      - think: 3
+
+  - name: "Smart Charts Searching"
+    flow:
+      - get:
+          url: "/SND/templates/practitioner/index.php"
+      - think: 3
+      - get:
+          url: "/SND/templates/practitioner/office-details.php?OID=11"
+      - think: 3
+      - post:
+          url: "/AJAXSS.php"
+          json:
+            term: "Test"
+            topic: "SOAP"
+      - think: 3
+
+  - name: "Smart Forms Searching"
+    flow:
+      - get:
+          url: "/SND/templates/practitioner/index.php"
+      - think: 3
+      - get:
+          url: "/SND/templates/practitioner/office-details.php?OID=11"
+      - think: 3
+      - post:
+          url: "/AJAXSS.php"
+          json:
+            term: "Test"
+            topic: "Frms"
+      - think: 3
+
+after:
+  flow:
+    - log: "Logout/End Session"
+    - get:
+        url: "/SND/templates/logout.php"
