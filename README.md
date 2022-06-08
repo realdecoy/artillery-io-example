@@ -1,4 +1,4 @@
-# performance-testing for outsmart
+# performance-testing with Artillery.io
 
 Setup instructions:
 
@@ -16,8 +16,8 @@ Setup instructions:
   The html report can then be opened in the browser. Reports are stored in the root of the project. Sample outputs can be found in the reports folder.
   
   Helpful Resources:
-  https://www.artillery.io/docs
-  https://www.artillery.io/docs/guides/getting-started/writing-your-first-test
-  https://www.artillery.io/docs/guides/getting-started/core-concepts
-  https://www.artillery.io/docs/guides/guides/http-reference
+  - https://www.artillery.io/docs
+  - https://www.artillery.io/docs/guides/getting-started/writing-your-first-test
+  - https://www.artillery.io/docs/guides/getting-started/core-concepts
+  - https://www.artillery.io/docs/guides/guides/http-reference
   
